@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Grafuri.dir/main.cpp.o  -o Grafuri 

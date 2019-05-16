@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alexandru-balan/CLionProjects/Grafuri/Graph.h
+utility
+-
+iostream
+-
+vector
+-
+map
+-
+set
+-
+fstream
+-
+
+/home/alexandru-balan/CLionProjects/Grafuri/OrderedGraph.h
+Graph.h
+/home/alexandru-balan/CLionProjects/Grafuri/Graph.h
+
+/home/alexandru-balan/CLionProjects/Grafuri/main.cpp
+iostream
+-
+Graph.h
+/home/alexandru-balan/CLionProjects/Grafuri/Graph.h
+OrderedGraph.h
+/home/alexandru-balan/CLionProjects/Grafuri/OrderedGraph.h
+
