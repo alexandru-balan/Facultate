@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alexandru-balan/CLionProjects/BuildingGraph/GraphBuilder.h
+iostream
+-
+vector
+-
+fstream
+-
+set
+-
+map
+-
+algorithm
+-
+
+/home/alexandru-balan/CLionProjects/BuildingGraph/main.cpp
+iostream
+-
+fstream
+-
+GraphBuilder.h
+/home/alexandru-balan/CLionProjects/BuildingGraph/GraphBuilder.h
+
