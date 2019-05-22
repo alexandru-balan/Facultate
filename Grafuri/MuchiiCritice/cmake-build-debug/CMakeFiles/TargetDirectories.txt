@@ -1,0 +1,3 @@
+/home/alexandru-balan/CLionProjects/MuchiiCritice/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/alexandru-balan/CLionProjects/MuchiiCritice/cmake-build-debug/CMakeFiles/MuchiiCritice.dir
+/home/alexandru-balan/CLionProjects/MuchiiCritice/cmake-build-debug/CMakeFiles/edit_cache.dir
