@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/UltimateGraph.dir/main.cpp.o  -o UltimateGraph 

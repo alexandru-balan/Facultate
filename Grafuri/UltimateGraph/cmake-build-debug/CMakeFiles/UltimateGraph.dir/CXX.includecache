@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alexandru-balan/CLionProjects/UltimateGraph/Graph.h
+iostream
+-
+fstream
+-
+vector
+-
+set
+-
+map
+-
+queue
+-
+algorithm
+-
+
+/home/alexandru-balan/CLionProjects/UltimateGraph/main.cpp
+iostream
+-
+Graph.h
+/home/alexandru-balan/CLionProjects/UltimateGraph/Graph.h
+
