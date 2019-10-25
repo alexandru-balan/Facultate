@@ -1,0 +1,3 @@
+﻿  TAP_TabalaZ.cpp
+C:\Users\alexandru.balan\source\repos\TAP_TabalaZ\TAP_TabalaZ\TAP_TabalaZ.cpp(48,11): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  TAP_TabalaZ.vcxproj -> C:\Users\alexandru.balan\source\repos\TAP_TabalaZ\Debug\TAP_TabalaZ.exe

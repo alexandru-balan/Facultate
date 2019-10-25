@@ -1,0 +1,4 @@
+﻿  Geometrie2.cpp
+C:\Users\alexandru.balan\source\repos\Geometrie2\Geometrie2\Geometrie2.cpp(64,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexandru.balan\source\repos\Geometrie2\Geometrie2\Geometrie2.cpp(148,22): warning C4018: '<': signed/unsigned mismatch
+  Geometrie2.vcxproj -> C:\Users\alexandru.balan\source\repos\Geometrie2\Debug\Geometrie2.exe

@@ -1,0 +1,8 @@
+﻿  SiruriDescrescatoare.cpp
+C:\Users\alexandru.balan\source\repos\SiruriDescrescatoare\SiruriDescrescatoare\SiruriDescrescatoare.cpp(34,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexandru.balan\source\repos\SiruriDescrescatoare\SiruriDescrescatoare\SiruriDescrescatoare.cpp(45,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexandru.balan\source\repos\SiruriDescrescatoare\SiruriDescrescatoare\SiruriDescrescatoare.cpp(47,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexandru.balan\source\repos\SiruriDescrescatoare\SiruriDescrescatoare\SiruriDescrescatoare.cpp(66,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexandru.balan\source\repos\SiruriDescrescatoare\SiruriDescrescatoare\SiruriDescrescatoare.cpp(68,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexandru.balan\source\repos\SiruriDescrescatoare\SiruriDescrescatoare\SiruriDescrescatoare.cpp(78,20): warning C4018: '<': signed/unsigned mismatch
+  SiruriDescrescatoare.vcxproj -> C:\Users\alexandru.balan\source\repos\SiruriDescrescatoare\Debug\SiruriDescrescatoare.exe

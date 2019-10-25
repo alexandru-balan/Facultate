@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+<h1>@ViewBag.Article.Title</h1>
+<p>@ViewBag.Article.Content</p>
+<small>@ViewBag.Article.Date.ToString()</small>
+<a href="/Article/Delete/@ViewBag.Article.Id">Sterge Articol</a>
+<br />
+<hr />
+<br />
+<a href="/Article/Index">Afiseaza toate articolele</a>

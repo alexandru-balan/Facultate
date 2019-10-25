@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+<form method="post" action="/article/DeleteConf/@ViewBag.id">
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button type="submit">Sterge</button>
+</form>
+<br />
+<hr />
+<br />
+<a href="/Article/Index">Afiseaza toate articolele</a>

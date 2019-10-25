@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<form method="post" action="/article/Edit/">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    <button type="submit">Editeaza</button>
+</form>
+<br />
+<hr />
+<br />
+<a href="/Article/Index">Afiseaza toate articolele</a>

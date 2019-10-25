@@ -1,0 +1,6 @@
+﻿  Planificare.cpp
+C:\Users\alexandru.balan\source\repos\Planificare\Planificare\Planificare.cpp(78,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexandru.balan\source\repos\Planificare\Planificare\Planificare.cpp(88,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexandru.balan\source\repos\Planificare\Planificare\Planificare.cpp(92,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexandru.balan\source\repos\Planificare\Planificare\Planificare.cpp(102,21): warning C4018: '<': signed/unsigned mismatch
+  Planificare.vcxproj -> C:\Users\alexandru.balan\source\repos\Planificare\Debug\Planificare.exe
