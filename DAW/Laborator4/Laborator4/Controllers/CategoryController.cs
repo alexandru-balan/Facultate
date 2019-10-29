@@ -25,11 +25,10 @@ namespace Laborator4.Controllers
         [HttpGet]
         public ActionResult Show (int id)
         {
-            db.Categories.Include("Articles");
-            var Category = db.Categories.Find(id);
+            var category = db.Categories.Find(id);
 
-            ViewBag.Category = Category;
-            ViewBag.Articles = Category.Articles;
+            ViewBag.Category = category;
+            ViewBag.Articles = category.Articles;
 
             return View();
         }
@@ -58,6 +57,10 @@ namespace Laborator4.Controllers
         [HttpGet]
         public ActionResult Edit (int id)
         {
+            var category = db.Categories.Find(id);
+
+            ViewBag.Category = category;
+
             return View();
         }
 
@@ -66,7 +69,7 @@ namespace Laborator4.Controllers
         {
             try
             {
-                Category category1 = db.Categories.Find(id);
+                var category1 = db.Categories.Find(id);
 
                 if (TryUpdateModel(category1))
                 {

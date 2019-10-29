@@ -29,7 +29,7 @@ namespace Laborator4.Controllers
             ViewBag.Article = article;
             ViewBag.Category = article.category;
 
-            return View();
+            return View(article);
         }
 
         [HttpGet]
@@ -47,6 +47,7 @@ namespace Laborator4.Controllers
             {
                 db.Articles.Add(article);
                 db.SaveChanges();
+                TempData["message"] = "Am adaugat un nou articol";
                 return RedirectToAction("Index");
             }
             catch (Exception e)
@@ -70,29 +71,51 @@ namespace Laborator4.Controllers
             
             ViewBag.Categories = categories; 
             
-            return View();
+            return View(article);
         }
 
-        [HttpPut] public ActionResult Edit(int id, Article requestArticle) 
+        [HttpPut]
+        public ActionResult Edit(int id, Article requestArticle) 
         { 
             try { 
-                Article article = db.Articles.Find(id); 
+                var article = db.Articles.Find(id); 
                 
-                if (TryUpdateModel(article)) 
+                /*if (TryUpdateModel(article)) 
                 { 
                     article.Title = requestArticle.Title; 
                     article.Content = requestArticle.Content; 
                     article.Date = requestArticle.Date; 
-                    article.CategoryId = requestArticle.CategoryId; 
+                    article.CategoryId = requestArticle.CategoryId;
                     db.SaveChanges(); 
-                } 
+
+                }*/
+
+                article.Title = requestArticle.Title;
+                article.Content = requestArticle.Content;
+                article.Date = requestArticle.Date;
+                article.CategoryId = requestArticle.CategoryId;
+
+                db.Entry(article).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
                 return RedirectToAction("Index"); 
-            } catch (Exception e) 
-            { 
+            } catch (Exception e)
+            {
+                System.Console.WriteLine(e.Message);
                 return View("EditErr"); 
             } 
         }
 
+        [HttpDelete]
+        public ActionResult Delete (int id)
+        {
+            var article = db.Articles.Find(id);
+
+            db.Articles.Remove(article);
+            db.SaveChanges();
+
+            return RedirectToRoute("/Category/Index");
+        }
 
     }
 }

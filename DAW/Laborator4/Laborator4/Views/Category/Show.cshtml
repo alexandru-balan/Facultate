@@ -8,15 +8,31 @@
 <h1>Afisare categorie</h1>
 <h2>@ViewBag.Category.CategoryName</h2>
 
-<a href="/Category/Edit/@ViewBag.Category.Id">Modifica categorie</a>
+<br />
+<hr />
 
-<form method="post" action="/Category/Delete/@ViewBag.Article.Id">
+@foreach (var article in ViewBag.Articles)
+{
+    <h3>@article.Title</h3>
+    <p>@article.Content</p>
+    <p>@article.Date</p>
+    <br />
+    <hr />
+}
+
+<a href="/Category/Edit/@ViewBag.Category.CategoryId">Modifica categorie</a>
+
+<form method="post" action="/Category/Delete/@ViewBag.Category.CategoryId">
     @Html.HttpMethodOverride(HttpVerbs.Delete)
     <button type="submit">Sterge categorie</button>
 </form>
 
+<br />
+<hr />
+<a href="/Article/New">Adauga un articol nou</a>
+<br />
+<a href="/Article/Index">Afiseaza toate articolele</a>
+<br />
+
 <hr />
 <a href="/Category/Index">Inapoi la categorii</a>
-<br />
-<a href="/Category/New">Adauga categorie</a>
-<br />

@@ -1,27 +1,36 @@
-﻿
-@{
-    ViewBag.Title = "Show";
-}
+﻿@model Laborator4.Models.Article
 
-<h2>Show</h2>
+@{ ViewBag.Title = "Show"; }
 
 <h1>Afisare articol</h1>
-<h2>@ViewBag.Article.Title</h2>
-<p>@ViewBag.Article.Content</p>
-<p>@ViewBag.Article.Date</p>
 
-<p>Categorie: @ViewBag.Category.CategoryName</p>
+<div class="panel panel-default">
+    <div class="panel-heading">@Model.Title</div>
+    <div class="panel-body">
+        Continut articol: <strong>@Model.Content</strong>
+        <br />
+        <span class="label label-success">@Model.Date</span>
+        <br />
+        <i class="glyphicon glyphicon-globe">@Model.category.CategoryName</i>
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-success" href="/Article/Edit/@Model.Id">Modifica articol</a>
+        <br />
+    </div>
+</div>
 
+<form method="post" action="/Article/Delete/@Model.Id">
 
-<a href="/Article/Edit/@ViewBag.Article.Id">Modifica articol</a>
-
-<form method="post" action="/Article/Delete/@ViewBag.Article.Id">    
     @Html.HttpMethodOverride(HttpVerbs.Delete)     
-    <button type="submit">Sterge articol</button> 
+    <br />     
+    <button class="btn btn-success" type="submit">Sterge articol</button>
+
 </form>
 
-<hr /> 
-<a href="/Article/Index">Inapoi la articole</a>
-<br /> 
-<a href="/Article/New">Adauga articol</a>
 <br />
+<hr /> 
+<a class="btn btn-success" href="/Article/Index">Inapoi la articole</a>
+<br />
+<br /> 
+<a class="btn btn-info" href="/Article/New">Adauga articol</a>
+<br /> 

@@ -1,37 +1,31 @@
-﻿
-@{
-    ViewBag.Title = "Edit";
-}
+﻿@model Laborator4.Models.Article
 
-<h2>Edit</h2>
+@{ ViewBag.Titlu = "Editare Articol"; }
 
-<form method="post" action="/Article/Edit/@ViewBag.Article.Id">
+<h2>@ViewBag.Titlu</h2>
+
+<form method="post" action="/Article/Edit/@Model.Id">
+
     @Html.HttpMethodOverride(HttpVerbs.Put)
-    <label>Titlu articol</label>
-    <br />
-    <input type="text" name="Title" value="@ViewBag.Article.Title" />
+
+    @Html.HiddenFor(m => m.Id)     
+    <br />     
+    @Html.Label("Title", "Titlu Articol")     
+    <br />     
+    @Html.EditorFor(m => m.Title)     
     <br /><br />
-    <label>Continut articol</label>
+
+    @Html.Label("Content", "Continut Articol")     
+    <br />     
+    @Html.EditorFor(m => m.Content)     
+    <br /><br />
+
+    @Html.HiddenFor(m => m.Date)     
     <br />
-    <input type="text" name="Content" value="@ViewBag.Article.Content" />
-    <br /><br />     
-    <label>Data</label>     
-    <br />     
-    <input type="text" name="Date" value="@ViewBag.Article.Date" />     
-    <br />     
-    <select name="CategoryId">         
-         @foreach (var category in ViewBag.Categories)
-         {
-             <option>
-                 @{ 
-                     if(category.CategoryId == ViewBag.Category.CategoryId)
-                     {
-                         @: selected = "seleted"
-                     }
-                 }
-             </option>
-         }
-    </select>     
-    <br />     
-    <button type="submit">Modifica articol</button>
+
+    <label>Selectati categoria</label>     
+    @Html.DropDownListFor(m => m.CategoryId, new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"), new { @class = "form-control" })     <br />
+
+    <button class="btn btn-sm btn-success" type="submit">Modifica articol</button>
+
 </form>

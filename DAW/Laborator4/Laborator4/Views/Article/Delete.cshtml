@@ -1,10 +1,7 @@
-﻿
-@{
-    ViewBag.Title = "Delete";
-}
+﻿<form method="post" action="/Article/Delete/@Model.Id">
 
-<h2>Delete</h2>
+    @Html.HttpMethodOverride(HttpVerbs.Delete)     
+    <br />     
+    <button class="btn btn-success" type="submit">Sterge articol</button>
 
-<form>
-
-</form>
+</form> 
