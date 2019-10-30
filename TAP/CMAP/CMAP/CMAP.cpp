@@ -32,6 +32,15 @@ public:
 		}
 	}
 
+	static bool CompareY(Point A, Point B) {
+		if (A.y != B.y) {
+			return A.y < B.y;
+		}
+		else {
+			return A.x < B.x;
+		}
+	}
+
 	static double computeDistance(Point A, Point B) {
 		return sqrt(pow(A.x - B.x, 2) + pow(A.y - B.y, 2));
 	}
@@ -67,7 +76,7 @@ vector<Point> readPoints(const char* file) {
 	return Points;
 }
 
-double getMinDistance(vector<Point> Points, Point& a, Point& b) {
+double getMinDistance(vector<Point>& Points, Point& a, Point& b) {
 	if (Points.size() <= 3) {
 		// Computing the minimal distance in a set of at most 3 points
 		double maximal = DBL_MAX;
@@ -78,18 +87,28 @@ double getMinDistance(vector<Point> Points, Point& a, Point& b) {
 				a = Points[i - 1];
 				b = Points[i];
 			}
+
 		}
+
+		sort(Points.begin(), Points.end(), Point::CompareY);
 
 		return maximal;
 	}
 
 	vector<Point> leftPart = vector<Point>(); leftPart.assign(Points.begin(), Points.begin() + (Points.size() / 2));
 	vector<Point> rightPart = vector<Point>(); rightPart.assign(Points.begin() + (Points.size() / 2), Points.end());
+	double xOfLine = (leftPart.back().getX() + rightPart.front().getX()) / 2; // The x coordinate of the line separating the two sets of points
+
 
 	// Recursively computing the min distance from left and right side
 	Point AL, BL, AR, BR;
 	double minLeft = getMinDistance(leftPart,AL,BL);
 	double minRight = getMinDistance(rightPart,AR,BR);
+
+	vector<Point> Merged(leftPart.size() + rightPart.size());
+
+	merge(leftPart.begin(), leftPart.end(), rightPart.begin(), rightPart.end(), Merged.begin(), Point::CompareY);
+	Points = Merged;
 
 	// Now we must get the min distance (if it exists) from pairs that have a point in the left side and one in the right side
 	double minDist = min(minLeft, minRight);
@@ -103,38 +122,25 @@ double getMinDistance(vector<Point> Points, Point& a, Point& b) {
 		b = BR;
 	}
 
-	double xOfLine = (leftPart.back().getX() + rightPart.front().getX()) / 2; // The x coordinate of the line separating the two sets of points
-
 	vector<Point> Y = vector<Point>();
-	vector<Point> Y2 = vector<Point>();
 
-	// Building the Y and Y2 sets of points that are at the most minDist distance from the dividing line
-	for (int i = leftPart.size() - 1; i >= 0; --i) {
-		if (xOfLine - leftPart[i].getX() < minDist) {
-			Y.push_back(leftPart[i]);
-		}
-		else {
-			break;
+	// Building the Y
+	for (int i = 0; i < Merged.size(); ++i) {
+		if (abs(Merged[i].getX() - xOfLine) <= minDist) {
+			Y.push_back(Merged[i]);
 		}
 	}
 
-	for (int i = 0; i < rightPart.size(); ++i) {
-		if (rightPart[i].getX() - xOfLine < minDist) {
-			Y2.push_back(rightPart[i]);
-		}
-		else {
-			break;
-		}
-	}
-
-	// Now that we have those points, we exhaustively compute the minimal distance of all the pairs that have one point in Y and the other in Y2
 	for (int i = 0; i < Y.size(); ++i) {
-		for (int j = 0; j < Y2.size(); ++j) {
-			double value = Point::computeDistance(Y[i], Y2[j]);
-			if (value < minDist) {
-				minDist = value;
+		for (int j = i + 1; j < Y.size(); ++j) {
+			if (j - i >= 16) {
+				break;
+			}
+			double dist = Point::computeDistance(Y[i], Y[j]);
+			if (dist <= minDist){
+				minDist = dist;
 				a = Y[i];
-				b = Y2[j];
+				b = Y[j];
 			}
 		}
 	}
