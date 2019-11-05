@@ -1,0 +1,25 @@
+﻿@model Laborator4.Models.Article
+
+@{ ViewBag.Title = "Show"; }
+
+<h1>Afisare articol</h1>
+
+<div class="panel panel-default">
+    @Html.Partial("./Shared/ArticleInfo", @Model)
+    <div class="panel-footer">
+        <a class="btn btn-info" href="/Article/Edit/@Model.Id">Modifica articol</a>
+        <br />
+    </div>
+</div>
+
+<form method="post" action="/Article/Delete/@Model.Id">
+
+    @Html.HttpMethodOverride(HttpVerbs.Delete)     
+    <br />     
+    <button class="btn btn-danger" type="submit">Sterge articol</button>
+
+</form>
+
+<br />
+<hr /> 
+<a class="btn btn-info" href="/Article/Index">Inapoi</a>

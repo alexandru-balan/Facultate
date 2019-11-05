@@ -1,0 +1,18 @@
+﻿@model Laborator4.Models.Category
+
+@{
+    ViewBag.Title = "Editare categorie";
+}
+
+<h1>@ViewBag.Title</h1>
+<hr />
+
+<form method="post" action="/Category/Edit/@Model.CategoryId">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    @Html.Label("CategoryName", "Nume Categorie")
+    @Html.EditorFor(m => m.CategoryName)
+    <br /><br />
+    @Html.HiddenFor(m => m.CategoryId)
+
+    <button class="btn btn-sm btn-success" type="submit">Modifica categoria</button>
+</form>
