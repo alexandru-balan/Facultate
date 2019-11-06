@@ -44,7 +44,7 @@ private:
 	}
 
 	bool onTheSameLine() {
-		if (computeAreaTriangle(Points[0], Points[1], Points[2]) == 0 && computeAreaTriangle(Points[3], Points[1], Points[2])) {
+		if (!computeAreaTriangle(Points[0], Points[1], Points[2]) && !computeAreaTriangle(Points[3], Points[1], Points[2])) {
 			return true;
 		}
 		return false;
@@ -183,10 +183,10 @@ public:
 
 int main()
 {
-	Point A(5, 0);
-	Point B(30, 0);
-	Point C(5, 7);
-	Point D(10, 15);
+	Point A(0, 0);
+	Point B(2, 2);
+	Point C(3, 3);
+	Point D(1, 1);
 	
 	vector<Point> Points; Points.push_back(A); Points.push_back(B); Points.push_back(C); Points.push_back(D);
 
