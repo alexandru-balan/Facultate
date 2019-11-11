@@ -44,10 +44,17 @@ namespace Laborator4.Controllers
         {
             try
             {
-                db.Categories.Add(category);
-                db.SaveChanges();
-                TempData["message"] = "Categoria a fost adaugata";
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Categories.Add(category);
+                    db.SaveChanges();
+                    TempData["message"] = "Categoria a fost adaugata";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(category);
+                }
             }
             catch (Exception ex)
             {
@@ -72,12 +79,19 @@ namespace Laborator4.Controllers
             {
                 var category1 = db.Categories.Find(id);
 
-                if (TryUpdateModel(category1))
+                if (ModelState.IsValid)
                 {
-                    category1.CategoryName = category.CategoryName;
-                    db.SaveChanges();
+                    if (TryUpdateModel(category1))
+                    {
+                        category1.CategoryName = category.CategoryName;
+                        db.SaveChanges();
+                    }
+                    return RedirectToAction("Index");
                 }
-                return RedirectToAction("Index");
+                else
+                {
+                    return View(category);
+                }
             }
             catch (Exception e)
             {

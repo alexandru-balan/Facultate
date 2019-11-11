@@ -15,11 +15,7 @@
     <div class="panel-body">
         @foreach (Laborator4.Models.Article article in ViewBag.Articles)
         {
-            <h3>@article.Title</h3>
-            <p>@article.Content</p>
-            <p>@article.Date</p>
-            <br />
-            <hr />
+            @Html.Partial("../Article/Shared/ArticleInfo", article);
         }
     </div>
 

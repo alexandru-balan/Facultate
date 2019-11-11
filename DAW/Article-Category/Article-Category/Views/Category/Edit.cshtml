@@ -11,6 +11,7 @@
     @Html.HttpMethodOverride(HttpVerbs.Put)
     @Html.Label("CategoryName", "Nume Categorie")
     @Html.EditorFor(m => m.CategoryName)
+    @Html.ValidationMessageFor(m => m.CategoryName, "Numele categoriei este obligatoriu", new { @class = "text-danger" })
     <br /><br />
     @Html.HiddenFor(m => m.CategoryId)
 

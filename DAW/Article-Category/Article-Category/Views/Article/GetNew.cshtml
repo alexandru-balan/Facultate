@@ -8,8 +8,6 @@
 <hr />
 @using (Html.BeginForm(actionName: "New", controllerName: "Article"))
 {
-    @Html.ValidationSummary(false, "", new { @class = "text-danger" });
-
     @Html.Label("Title", "Titlu Articol");
     <br />
     @Html.TextBox("Title", null, new { @class = "form-control" })
