@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Afisare utilizatori";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+@foreach (var user in ViewBag.Users)
+{
+    <div class="panel-heading">Nume utilizator: @user.UserName</div>
+    <div class="panel-body">
+        <i class="glyphicon glyphicon-envelope">Email utilizator: <span class="label label-default">@user.Email</span></i>
+        <br /><br />
+        @if (user.PhoneNumber != null)
+        {
+            <i class="glyphicon glyphicon-phone"></i>@:Telefon utilizator:<span class="label label-default">@user.PhoneNumber</span>
+        }
+    </div>
+    
+    <div class="panel-footer">
+        <a class="btn btn-sm btn-info" href="/Users/Edit/@user.Id">Editare utilizator</a>
+    </div>
+    <br /><br />
+}

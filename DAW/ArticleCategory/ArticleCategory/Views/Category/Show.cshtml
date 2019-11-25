@@ -1,0 +1,33 @@
+﻿@model ArticleCategory.Models.Category
+
+@{
+    ViewBag.Title = "Afisare categorie";
+}
+
+<h1>@ViewBag.Title</h1>
+<hr />
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @Model.CategoryName
+    </div>
+
+    <div class="panel-body">
+        @foreach (ArticleCategory.Models.Article article in ViewBag.Articles)
+        {
+            @Html.Partial("../Article/Shared/ArticleInfo", article);
+        }
+    </div>
+
+    <div class="panel-footer">
+        <a class="btn btn-sm btn-info" href="/Category/Edit/@Model.CategoryId">Modifica categoria</a>
+        <br /> <br />
+        <form method="post" action="/Category/Delete/@Model.CategoryId">
+            @Html.HttpMethodOverride(HttpVerbs.Delete)
+            <button class="btn btn-sm btn-danger" type="submit">Sterge categoria</button>
+        </form>
+    </div>
+</div>
+<br /> <br />
+
+<a class="btn btn-sm btn-info" href="/Category/Index">Inapoi</a>

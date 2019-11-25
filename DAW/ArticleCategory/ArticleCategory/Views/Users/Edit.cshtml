@@ -1,0 +1,50 @@
+﻿@model ArticleCategory.Models.ApplicationUser
+@{
+    ViewBag.Title = "Editare rol utilizator";
+}
+<ol class="breadcrumb">
+    <li><h3>@ViewBag.Title</h3></li>
+</ol>
+<form method="post" action="/Users/Edit/@Model.Id">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    @Html.HiddenFor(m => m.Id)
+    <br />
+    <i class="glyphicon glyphicon-user"></i>
+    @Html.Label("UserName", "Nume utilizator", new { @class = "" })
+    <br />
+    @Html.EditorFor(m => m.UserName)
+    <br /><br />
+    <i class="glyphicon glyphicon-envelope"></i>
+    @Html.Label("Email", "Email utilizator", new { @class = "" })
+    <br />
+    @Html.EditorFor(m => m.Email)
+    <br /><br />
+    <i class="glyphicon glyphicon-phone"></i>
+    @Html.Label("PhoneNumber", "Numar telefon")
+    <br />
+    @Html.EditorFor(m => m.PhoneNumber)
+    <br /><br />
+    <i class="glyphicon glyphicon-th-list"></i>
+    <label>Selectati rolul</label>
+    @Html.DropDownList("newRole", new SelectList(Model.AllRoles, "Value",
+   "Text", (string)ViewBag.userRole), null, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-sm btn-success" type="submit">
+        Modifica
+    </button>
+</form>
+<br />
+<br />
+
+@if (ViewBag.currentUserId != Model.Id)
+{
+<form method="post" action="/Users/Delete/@Model.Id">
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    @Html.HiddenFor(m => m.Id)
+    <br /><br />
+
+    <button class="btn btn-sm btn-danger" type="submit">
+        Sterge
+    </button>
+</form>
+}

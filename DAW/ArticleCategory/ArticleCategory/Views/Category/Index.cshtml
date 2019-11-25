@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Afisare categorii";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+@foreach (ArticleCategory.Models.Category category in ViewBag.Categories)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @category.CategoryName
+        </div>
+        
+        <div class="panel-footer">
+            <a class="btn btn-sm btn-success" href="/Category/Show/@category.CategoryId">Afisare categorie</a>
+        </div>
+    </div>
+    <br />
+}
+<br />
+
+<a class="btn btn-info" href="/Category/New">Adauga categorie</a>
+<br /> <br />
+<a class="btn btn-success" href="/Article/Index">Afiseaza toate articolele</a>
+<br />
