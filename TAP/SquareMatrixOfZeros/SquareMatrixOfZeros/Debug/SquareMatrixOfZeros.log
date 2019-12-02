@@ -1,0 +1,5 @@
+﻿  SquareMatrixOfZeros.cpp
+C:\Users\alexandru.balan\source\repos\SquareMatrixOfZeros\SquareMatrixOfZeros\SquareMatrixOfZeros.cpp(45,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexandru.balan\source\repos\SquareMatrixOfZeros\SquareMatrixOfZeros\SquareMatrixOfZeros.cpp(49,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexandru.balan\source\repos\SquareMatrixOfZeros\SquareMatrixOfZeros\SquareMatrixOfZeros.cpp(60,17): warning C4553: '==': result of expression not used; did you intend '='?
+  SquareMatrixOfZeros.vcxproj -> C:\Users\alexandru.balan\source\repos\SquareMatrixOfZeros\Debug\SquareMatrixOfZeros.exe
