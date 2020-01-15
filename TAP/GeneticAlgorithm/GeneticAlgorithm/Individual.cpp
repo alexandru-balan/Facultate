@@ -1,12 +1,12 @@
 #include "Individual.h"
 
-string Individual::MakeBinary(double number)
+string Individual::MakeBinary(long double number, int length)
 {
 	string sign("0");
 	int exponent;
 	int integerPart;
-	deque<int> binaryInteger;
-	deque<int> binaryFractional(23, 0);
+	deque<int> binaryInteger;	
+	deque<int> binaryFractional(length, 0);
 	deque<int> binaryExponent;
 	string binaryRepr;
 	
@@ -27,8 +27,8 @@ string Individual::MakeBinary(double number)
 	integerPart = floor(number);
 
 	// Transforming the fractional part
-	double fractionalPart = number - integerPart;
-	for (int i = 0; i < 23; ++i) {
+	long double fractionalPart = number - integerPart;
+	for (int i = 0; i < length; ++i) {
 		if (fractionalPart == 0) {
 			break;
 		}
@@ -40,7 +40,7 @@ string Individual::MakeBinary(double number)
 		}
 	}
 
-	while (binaryFractional.size() > 23)
+	while (binaryFractional.size() > length)
 	{
 		binaryFractional.pop_front();
 	}
@@ -55,7 +55,7 @@ string Individual::MakeBinary(double number)
 			}
 			binaryFractional.pop_front();
 			exponent--;
-			while (binaryFractional.size() < 23) {
+			while (binaryFractional.size() < length) {
 				binaryFractional.push_front(0);
 			}
 		}
@@ -76,13 +76,13 @@ string Individual::MakeBinary(double number)
 			binaryFractional.pop_front();
 			exponent--;
 		}
-		if (binaryFractional.size() > 23) {
-			while (binaryFractional.size() > 23) {
+		if (binaryFractional.size() > length) {
+			while (binaryFractional.size() > length) {
 				binaryFractional.pop_back();
 			}
 		}
-		else if (binaryFractional.size() < 23) {
-			while (binaryFractional.size() < 23) {
+		else if (binaryFractional.size() < length) {
+			while (binaryFractional.size() < length) {
 				binaryFractional.push_front(0);
 			}
 		}
@@ -120,13 +120,13 @@ string Individual::MakeBinary(double number)
 	return binaryRepr;
 }
 
-double Individual::FromBinary(string binary)
+long double Individual::FromBinary(string binary)
 {
-	double result = 0.0;
+	long double result = 0.0;
 
 	int sign;
 	int exponent = 0;
-	double fractional = 0.0;
+	long double fractional = 0.0;
 	int x;
 
 	// Get the sign
@@ -147,7 +147,7 @@ double Individual::FromBinary(string binary)
 	exponent -= 127;
 
 	// Get the fractional part
-	for (int i = 22; i >= 0; --i) {
+	for (int i = length - 1; i >= 0; --i) {
 		fractional += (binary.front() - '0') * pow(2, i);
 		binary.erase(binary.begin());
 	}
@@ -156,7 +156,7 @@ double Individual::FromBinary(string binary)
 	}
 
 	// Combine the numbers
-	result = pow(-1, sign) * (1 + fractional) * pow(2, exponent);
+	result = (long double)pow(-1, sign) * (1 + fractional) * (long double)pow(2, exponent);
 
 	return result;
 }
@@ -166,16 +166,23 @@ Individual::Individual()
 	numericalValue = 0;
 	binaryValue.assign(32, '0');
 	selectionProbability = 0.0;
+	length = 0;
 }
 
-Individual::Individual(double number)
+Individual::Individual(long double number, int prec, int a, int b)
 {
 	this->numericalValue = number;
-	this->binaryValue = MakeBinary(number);
+	// Finding length
+	double n = 2;
+	int i = 1;
+
+	length = log2((b - a) * pow(10, prec));
+
+	this->binaryValue = MakeBinary(number, length);
 	this->selectionProbability = 0;
 }
 
-double Individual::GetNumericalValue()
+long double Individual::GetNumericalValue()
 {
 	return this->numericalValue;
 }
@@ -188,7 +195,7 @@ string Individual::GetBinaryValue()
 void Individual::ChangeValue(int number)
 {
 	this->numericalValue = number;
-	this->binaryValue = MakeBinary(number);
+	this->binaryValue = MakeBinary(number, length);
 }
 
 void Individual::ChangeBinary(string binary)
@@ -197,12 +204,12 @@ void Individual::ChangeBinary(string binary)
 	this->numericalValue = FromBinary(binary);
 }
 
-double Individual::GetSelectionProbability()
+long double Individual::GetSelectionProbability()
 {
 	return this->selectionProbability;
 }
 
-void Individual::SetSelectionProbability(double prob)
+void Individual::SetSelectionProbability(long double prob)
 {
 	this->selectionProbability = prob;
 }

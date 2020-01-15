@@ -9,24 +9,25 @@ using namespace std;
 class Individual
 {
 private:
-	double numericalValue;
+	long double numericalValue;
 	string binaryValue;
-	double selectionProbability;
+	long double selectionProbability;
+	int length;
 
-	string MakeBinary(double number);
-	double FromBinary(string binary);
+	string MakeBinary(long double number, int length);
+	long double FromBinary(string binary);
 
 public:
 	// Construtors
 	Individual();
-	Individual(double number);
+	Individual(long double number, int prec, int a, int b);
 
 	// SET & GET Methods
-	double GetNumericalValue();
+	long double GetNumericalValue();
 	string GetBinaryValue();
 	void ChangeValue(int number); // This will also change the binary representation
 	void ChangeBinary(string binary);
-	double GetSelectionProbability();
-	void SetSelectionProbability(double prob);
+	long double GetSelectionProbability();
+	void SetSelectionProbability(long double prob);
 };
 

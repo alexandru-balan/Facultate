@@ -1,14 +1,18 @@
-﻿  Evolution.cpp
-C:\Users\alexandru_balan\source\repos\GeneticAlgorithm\GeneticAlgorithm\Evolution.cpp(57,14): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\alexandru_balan\source\repos\GeneticAlgorithm\GeneticAlgorithm\Evolution.cpp(65,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexandru_balan\source\repos\GeneticAlgorithm\GeneticAlgorithm\Evolution.cpp(86,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexandru_balan\source\repos\GeneticAlgorithm\GeneticAlgorithm\Evolution.cpp(91,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexandru_balan\source\repos\GeneticAlgorithm\GeneticAlgorithm\Evolution.cpp(100,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\alexandru_balan\source\repos\GeneticAlgorithm\GeneticAlgorithm\Evolution.cpp(104,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexandru_balan\source\repos\GeneticAlgorithm\GeneticAlgorithm\Evolution.cpp(126,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexandru_balan\source\repos\GeneticAlgorithm\GeneticAlgorithm\Evolution.cpp(164,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexandru_balan\source\repos\GeneticAlgorithm\GeneticAlgorithm\Evolution.cpp(169,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexandru_balan\source\repos\GeneticAlgorithm\GeneticAlgorithm\Evolution.cpp(190,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexandru_balan\source\repos\GeneticAlgorithm\GeneticAlgorithm\Evolution.cpp(197,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexandru_balan\source\repos\GeneticAlgorithm\GeneticAlgorithm\Evolution.cpp(26): warning C4715: 'Evolution::FindInterval': not all control paths return a value
-  GeneticAlgorithm.vcxproj -> C:\Users\alexandru_balan\source\repos\GeneticAlgorithm\Debug\GeneticAlgorithm.exe
+﻿  Individual.cpp
+C:\Users\alexa\Projects\Facultate\TAP\GeneticAlgorithm\GeneticAlgorithm\Individual.cpp(19,21): warning C4244: '=': conversion from 'long double' to 'int', possible loss of data
+C:\Users\alexa\Projects\Facultate\TAP\GeneticAlgorithm\GeneticAlgorithm\Individual.cpp(27,21): warning C4244: '=': conversion from 'long double' to 'int', possible loss of data
+C:\Users\alexa\Projects\Facultate\TAP\GeneticAlgorithm\GeneticAlgorithm\Individual.cpp(35,35): warning C4244: 'argument': conversion from 'long double' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\alexa\Projects\Facultate\TAP\GeneticAlgorithm\GeneticAlgorithm\Individual.cpp(43,33): warning C4018: '>': signed/unsigned mismatch
+C:\Users\alexa\Projects\Facultate\TAP\GeneticAlgorithm\GeneticAlgorithm\Individual.cpp(58,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexa\Projects\Facultate\TAP\GeneticAlgorithm\GeneticAlgorithm\Individual.cpp(79,31): warning C4018: '>': signed/unsigned mismatch
+C:\Users\alexa\Projects\Facultate\TAP\GeneticAlgorithm\GeneticAlgorithm\Individual.cpp(80,35): warning C4018: '>': signed/unsigned mismatch
+C:\Users\alexa\Projects\Facultate\TAP\GeneticAlgorithm\GeneticAlgorithm\Individual.cpp(84,36): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexa\Projects\Facultate\TAP\GeneticAlgorithm\GeneticAlgorithm\Individual.cpp(85,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexa\Projects\Facultate\TAP\GeneticAlgorithm\GeneticAlgorithm\Individual.cpp(144,49): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\alexa\Projects\Facultate\TAP\GeneticAlgorithm\GeneticAlgorithm\Individual.cpp(130,6): warning C4101: 'x': unreferenced local variable
+C:\Users\alexa\Projects\Facultate\TAP\GeneticAlgorithm\GeneticAlgorithm\Individual.cpp(179,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  GeneticAlgorithm.vcxproj -> C:\Users\alexa\Projects\Facultate\TAP\GeneticAlgorithm\Debug\GeneticAlgorithm.exe

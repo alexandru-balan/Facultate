@@ -2,6 +2,8 @@
 #include <vector>
 #include <ctime>
 #include <random>
+#include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -12,22 +14,22 @@ private:
 	int numberOfIndividuals;
 	pair<int, int> interval;
 	int intervalPrecision;
-	double crossoverProbabilty;
-	double mutationProbability;
+	long double crossoverProbabilty;
+	long double mutationProbability;
 	int numberOfStages;
 	vector<Individual> population;
-	vector<double> cumulativeProbabilities;
+	vector<long double> cumulativeProbabilities;
 	
-	double function(double x) {
-		return -(pow(x, 2)) + x + 2;
+	long double function(long double x) {
+		return -(pow(x, 2)) + x + 2.0;
 	}
 
-	int FindInterval(double value);
+	int FindInterval(long double value);
 
 public:
 	// Constructors
 	Evolution();
-	Evolution(int numberOfIndividuals, pair<int, int> interval, int intervalPrecision, double crossoverProbabilty, double mutationProbabilty, int numberOfStages);
+	Evolution(int numberOfIndividuals, pair<int, int> interval, int intervalPrecision, long double crossoverProbabilty, long double mutationProbabilty, int numberOfStages);
 
 	// Printing
 	void PrintPopulation();
